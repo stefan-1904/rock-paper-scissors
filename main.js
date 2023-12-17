@@ -1,39 +1,57 @@
 let playerPrompt = prompt("Choose either rock, paper or scissors:");
 
+let playerSelection;
 function playerInput() {
     let lowerPrompt = playerPrompt.toLowerCase();
 
     if (lowerPrompt == 'rock') {
-        return 1;
+        playerSelection = 1;
     } else if (lowerPrompt == 'paper') {
-        return 2;
+        playerSelection = 2;
     } else if (lowerPrompt == 'scissors') {
-        return 3;
+        playerSelection = 3;
     } else  {
         console.log('Invalid option');
     }
+    return playerSelection;
 }
-    
+playerInput();
+
 console.log(playerInput());
 
+let computerSelection;
 function getComputerChoice() {
-    const choiceArray = ["rock", "paper", "scissors"];
+    let choiceArray = ["rock", "paper", "scissors"];
     let randomChoice = choiceArray[Math.floor(Math.random() * choiceArray.length)];
 
     if (randomChoice == 'rock') {
-        return 1;
+        computerSelection = 1;
     } else if (randomChoice == 'paper') {
-        return 2;
+        computerSelection = 2;
     } else if (randomChoice == 'scissors') {
-        return 3;
+        computerSelection = 3;
     }
+    return computerSelection;
 }
+getComputerChoice();
 
 console.log(getComputerChoice());
 
 function gameRound(playerSelection, computerSelection) {
-    playerSelection = playerInput();
-    computerSelection = getComputerChoice();
+    if (playerSelection === computerSelection) {
+        console.log("Draw");
+    } else if (playerSelection === 1 && computerSelection === 2) {
+        console.log('Lose!');
+    } else if (playerSelection === 1 && computerSelection === 3) {
+        console.log('Win!');
+    } else if (playerSelection === 2 && computerSelection === 1) {
+        console.log('Win!');
+    } else if (playerSelection === 2 && computerSelection === 3) {
+        console.log('Lose!');
+    } else if (playerSelection === 3 && computerSelection === 1) {
+        console.log('Lose!');
+    } else if (playerSelection === 3 && computerSelection === 2) {
+        console.log('Win!');
+    }
 }
-
-console.log(gameRound())
+gameRound(playerSelection, computerSelection);
