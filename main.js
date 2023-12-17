@@ -3,7 +3,6 @@ let playerPrompt = prompt("Choose either rock, paper or scissors:");
 let playerSelection;
 function playerInput() {
     let lowerPrompt = playerPrompt.toLowerCase();
-
     if (lowerPrompt == 'rock') {
         playerSelection = 1;
     } else if (lowerPrompt == 'paper') {
@@ -23,7 +22,6 @@ let computerSelection;
 function getComputerChoice() {
     let choiceArray = ["rock", "paper", "scissors"];
     let randomChoice = choiceArray[Math.floor(Math.random() * choiceArray.length)];
-
     if (randomChoice == 'rock') {
         computerSelection = 1;
     } else if (randomChoice == 'paper') {
@@ -33,25 +31,48 @@ function getComputerChoice() {
     }
     return computerSelection;
 }
-getComputerChoice();
 
 console.log(getComputerChoice());
 
 function gameRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        console.log("Draw");
+        return 'Draw!';
     } else if (playerSelection === 1 && computerSelection === 2) {
-        console.log('Lose!');
+        return 'Lose!';
     } else if (playerSelection === 1 && computerSelection === 3) {
-        console.log('Win!');
+        return 'Win!';
     } else if (playerSelection === 2 && computerSelection === 1) {
-        console.log('Win!');
+        return 'Win!';
     } else if (playerSelection === 2 && computerSelection === 3) {
-        console.log('Lose!');
+        return 'Lose!';
     } else if (playerSelection === 3 && computerSelection === 1) {
-        console.log('Lose!');
+        return 'Lose!';
     } else if (playerSelection === 3 && computerSelection === 2) {
-        console.log('Win!');
+        return 'Win!';
     }
 }
-gameRound(playerSelection, computerSelection);
+
+console.log(gameRound(playerSelection, computerSelection));
+
+let playerScore = 0;
+let computerScore = 0;
+
+function scoreTally() {
+    let result = gameRound(playerSelection, computerSelection);
+    if (result === 'Win!') {
+        playerScore++;
+        return playerScore;
+    } else if (result === 'Lose!') {
+        computerScore++;
+        return computerScore;
+    }
+}
+
+scoreTally(playerSelection, computerSelection)
+
+console.log("Your score: " + playerScore);
+console.log("Computer score: " + computerScore);
+
+// function game() {
+    
+// }
