@@ -31,7 +31,7 @@ function gameRound(userChoice, computerChoice) {
     // Checks if both userChoice, and computerChoice are strictly equal.
     if (userChoice === computerChoice) {
         console.log("It's a draw!");
-        console.log('The score remains the same!')
+        console.log('The score remains the same!');
     } else if (
         // This block handles the winning combinations.
         userChoice === 'rock' && computerChoice === 'scissors' ||
@@ -57,7 +57,7 @@ function gameRound(userChoice, computerChoice) {
 
 // If the players score reaches five then a win message is displayed with a final scoreboard.
 if (playerWins === 5) {
-    console.log('You won!')
+    console.log('You won!');
     console.log("Your final score is: " + playerWins);
     console.log("Computer's final score is: " + computerWins);
 }
@@ -86,8 +86,9 @@ if (computerWins === 5) {
 
 // -------------------------------------
 
-
 // OLD CODE! / USED FOR SELF-REFLECTION!
+
+
 
 // let playerPrompt = prompt("Choose either rock, paper or scissors:");
 
