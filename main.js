@@ -64,9 +64,7 @@ function game() {
 
 document.addEventListener("DOMContentLoaded", () => {
     const logOutput = document.getElementById("results");
-
     console.log = (msg) => {
         logOutput.innerHTML += "<p>" + msg + "</p>";
-
     };
 });
